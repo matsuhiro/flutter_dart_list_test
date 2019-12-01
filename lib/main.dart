@@ -91,13 +91,13 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            if (_counter % 2 == 0)
+              Text(
+                'Count is even!',
+              ),
+            if (_counter % 2 != 0)
+              for (var i = 0; i < _counter; i++) Text('This is $i'),
+            ..._widgets(),
           ],
         ),
       ),
@@ -108,4 +108,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  List<Widget> _widgets() => [Text('hoge1'), Text('hoge2')];
 }
